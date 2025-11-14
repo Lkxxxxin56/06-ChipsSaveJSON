@@ -114,6 +114,22 @@ struct ContentView: View {
   }
 }
 
+struct BottomButtonsView: View {
+    var rect: CGRect
+    @Environment(Document.self) var document
+    var body: some View {
+        @Bindable var document = document
+        HStack {
+            Button("Add"){
+                withAnimation{
+                    document.addItem
+                }
+            }
+            
+        }
+    }
+}
+
 #Preview {
   ContentView()
     .environment(Document())
